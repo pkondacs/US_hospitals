@@ -145,7 +145,6 @@ rankhospital <- function(state, outcome, num = "best") {
 }
 
 
-
 # INDEPENDENT CHECKS
 subset_df <- subset(outcomes, State == "MS")
 cols_to_num <- c("Hospital.30.Day.Death..Mortality..Rates.from.Heart.Heart.Attack","Hospital.30.Day.Death..Mortality..Rates.from.Heart.Failure","Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia")
@@ -160,14 +159,11 @@ rankhospital("TX", "pneumonia", 10)
 rankhospital("NY", "heart attack", 7)
 
 
-
-
 r <- rankall("heart attack", 4)
 as.character(subset(r, state == "HI")$hospital)
 
 r <- rankall("heart failure", 10)
 as.character(subset(r, state == "NV")$hospital)
-
 
 
 #####################
@@ -183,6 +179,7 @@ as.character(subset(r, state == "NV")$hospital)
 employee <- c('John Doe','Peter Gynn','Anne Gynn','Jolie Hope')
 salary <- c(25000, 23400, 23400, 26800)
 startdate <- as.Date(c('2010-11-1','2008-3-25','2018-3-25','2007-3-14'))
+# Create data frame by merging columns
 employ.data <- data.frame(employee, salary, startdate)
 View(employ.data)
 employ.data_ordered <- employ.data[with(employ.data, order(employ.data$salary,xtfrm(employ.data$employee))), ]
